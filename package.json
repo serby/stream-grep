@@ -1,0 +1,25 @@
+{ "author": "Paul Serby <paul@serby.net>"
+, "name": "find-reg"
+, "description": "Streaming search for an array of regexs in a given file and emit event when found."
+, "version": "0.0.1"
+, "tags": []
+, "repository":
+  { "type": "git"
+  , "url": "git@github.com:serby/find-reg"
+  }
+, "main": ""
+, "scripts":
+  { "test": "make test"
+  , "prepublish": "make qa && npm prune"
+  }
+, "engines":
+  { "node": ">=0.8"
+  }
+, "dependencies":
+  {
+  }
+, "devDependencies":
+  { "mocha": "*"
+  , "should": "*"
+  }
+}
