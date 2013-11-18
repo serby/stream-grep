@@ -23,6 +23,14 @@
 , "node": true
 , "noempty": false
 , "nonew": true
+, "predef":
+  [ "describe"
+  , "it"
+  , "before"
+  , "beforeEach"
+  , "after"
+  , "afterEach"
+  ]
 , "quotmark": "single"
 , "smarttabs": true
 , "strict": false

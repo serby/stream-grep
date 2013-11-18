@@ -1,25 +1,38 @@
-{ "author": "Paul Serby <paul@serby.net>"
-, "name": "find-reg"
-, "description": "Streaming search for an array of regexs in a given file and emit event when found."
-, "version": "0.0.1"
-, "tags": []
-, "repository":
-  { "type": "git"
-  , "url": "git@github.com:serby/find-reg"
-  }
-, "main": ""
-, "scripts":
-  { "test": "make test"
-  , "prepublish": "make qa && npm prune"
-  }
-, "engines":
-  { "node": ">=0.8"
-  }
-, "dependencies":
-  {
-  }
-, "devDependencies":
-  { "mocha": "*"
-  , "should": "*"
+{
+  "author": "Paul Serby <paul@serby.net>",
+  "name": "stream-grep",
+  "description": "Streaming search for an array of regexs in a given stream, emits event when found.",
+  "version": "0.0.1",
+  "tags": [
+    "stream",
+    "grep"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:serby/stream-grep"
+  },
+  "publishConfig": {
+    "registry":"http://registry.npmjs.org"
+  },
+  "main": "./stream-grep",
+  "scripts": {
+    "lint": "./node_modules/.bin/jshint . --reporter=./node_modules/jshint-full-path/index.js",
+    "pretest": "npm run-script lint",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec -r should",
+    "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
+    "prepublish": "npm test && npm prune"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "split": "~0.2.10"
+  },
+  "devDependencies": {
+    "mocha": "1",
+    "should": "~2.1.0",
+    "istanbul": "~0.1.44",
+    "jshint": "~2.3.0",
+    "jshint-full-path": "~0.1.0"
   }
 }
