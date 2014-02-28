@@ -35,9 +35,13 @@ describe('stream-grep', function () {
   })
 
   it('should find instance of regexp and return line', function (done) {
+    var found = []
     streamGrep(getStream(), /terms\.forEach/)
     .on('found', function(term, line) {
-      line.should.eql(30)
+      found.push(line)
+    })
+    .on('end', function() {
+      found.should.eql([41, 56])
       done()
     })
   })
@@ -45,7 +49,7 @@ describe('stream-grep', function () {
   it('should find instance of regexp and return count on end event', function (done) {
     streamGrep(getStream(), /terms\.forEach/)
     .on('end', function(found) {
-      found.should.eql(1)
+      found.should.eql(2)
       done()
     })
   })
@@ -57,7 +61,31 @@ describe('stream-grep', function () {
       found.push(line)
     })
     .on('end', function() {
-      found.should.eql([5, 14, 15, 16, 18, 22, 23, 27, 30])
+      found.should.eql([11, 18, 19, 20, 22, 26, 27, 37, 41, 56])
+      done()
+    })
+  })
+
+  it('should find instance of many regexps using capture', function (done) {
+    var found = []
+    streamGrep(getStream(), /\'((?:\\.|[^\'\\])*)\'/, function () { return true })
+    .on('captured', function(term, line) {
+      found.push(line)
+    })
+    .on('end', function() {
+      found.should.eql([1, 2, 3, 7, 27, 30, 31, 38, 43, 48, 58, 63, 64, 66, 67])
+      done()
+    })
+  })
+
+  it('should not find instance of many regexps using when matcher returns false ', function (done) {
+    var found = []
+    streamGrep(getStream(), /\'((?:\\.|[^\'\\])*)\'/, function () { return false })
+    .on('captured', function(term, line) {
+      found.push(line)
+    })
+    .on('end', function() {
+      found.should.eql([])
       done()
     })
   })
