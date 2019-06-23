@@ -26,13 +26,13 @@
     "node": ">=0.10"
   },
   "dependencies": {
-    "split": "~0.2.10"
+    "split": "~1.0.1"
   },
   "devDependencies": {
-    "mocha": "1",
-    "should": "~2.1.0",
-    "istanbul": "~0.1.44",
-    "jshint": "~2.3.0",
-    "jshint-full-path": "~0.1.0"
+    "mocha": "^6.1.4",
+    "should": "~13.2.3",
+    "istanbul": "~0.4.5",
+    "jshint": "~2.10.2",
+    "jshint-full-path": "~1.1.1"
   }
 }
