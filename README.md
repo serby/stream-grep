@@ -2,7 +2,7 @@
 
 Streaming search for an array of regexs in a given stream, emits event when found.
 
-[![build status](https://secure.travis-ci.org/serby/stream-grep.png)](http://travis-ci.org/serby/stream-grep)
+[![build status](https://secure.travis-ci.org/serby/stream-grep.png)](http://travis-ci.org/serby/stream-grep) [![Greenkeeper badge](https://badges.greenkeeper.io/serby/stream-grep.svg)](https://greenkeeper.io/)
 
 ## Installation
 
